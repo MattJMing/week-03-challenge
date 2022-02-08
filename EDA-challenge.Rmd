@@ -147,10 +147,10 @@ Calculating the average Brain Size and Male Body Mass per Family
 Finally, arranging by increasing brain size
 
 ```{r}
-d %>% mutate(d,Binomial = paste(d$Genus,d$Species)) %>% 
+d %>% mutate(Binomial = paste(d$Genus,d$Species)) %>% 
   select(Binomial,Family,Brain_Size_Species_Mean,Body_mass_male_mean) %>%
   group_by(Family) %>% summarise(
     Brain_size_species_mean = mean(Brain_Size_Species_Mean,na.rm = TRUE),
     Body_mass_male_mean = mean(Body_mass_male_mean,na.rm = TRUE)) %>%
-  arrange(Brain_size_species_mean,.by_group = TRUE)
+  arrange(Brain_size_species_mean)
 ```
